@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music in the Machines - Project 1</title>
+	<!-- link an external stylesheet or add your style tags here -->
+</head>
+<body>
+	
+	<h1> Opera!</h1>
+  <h2 id = "sg"> La Travita </h2>
+	  <audio id="aud">
+          <source src="La-traviata-opera.mp3" type="audio/mpeg">
+	  </audio>
+
+    <div id="cool">
+      <button type = "button" class = "btn"> Previous Song </button>
+	<button onclick="play()" type="button" class="btn active"> Play </button>
+	<button onclick="pause()" type="button" class="btn"> Pause</button>
+	<button onclick="mute()" type="button" class="btn "> Mute</button>
+	<button onclick="unmute()" type="button" class="btn"> UnMute</button>
+  <button type = "button" class = "btn" id = "sng"> Next Song! </button>
+    </div>
+        <h1>  What is an Opera?  </h1>
+
+        <p> An opera is a dramatic story using instruments and vocal sound. Some operas are below.  </p>
+
+        <li> The Magic Flute </li>
+        <li> La Travita </li>
+        <li> Carmen  </li>
+
+
+        <footer> &#169; Arjun Singh 2019
+ </footer>
+            <img src="https://cdn2.vectorstock.com/i/1000x1000/33/86/music-notes-on-a-stave-or-staff-vector-2193386.jpg"  height="700px"  width= "700px">
+          
+      <script>
+              var a = 0
+          var songs =  ["La Travita", "Overture Finale", "Humoresque Dovark"]
+           document.getElementById("sng").addEventListener("click", yay)
+
+           function nextS() {
+            alert(songs[a])
+            a = a+1
+            if(a>2) {
+              a = 0
+            }
+           }
+
+
+            function prevS() {
+              alert(songs[a])
+              a = a-1
+              if(a<0) {
+                a=2
+              }
+            }
+
+
+      var player = document.getElementById("aud")
+         function play() {
+         	player.play();
+         }
+
+          function pause() {
+          	player.pause();
+          }
+         
+         function  mute() {
+         	player.muted = true;
+         }
+        function unmute() {
+        	player.muted = false;
+        }
+          var header = document.getElementById("cool")
+          var btns = header.getElementsByClassName("btn")
+             for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active" , "")
+                this.className += " active";
+              })
+             }
+
+
+         </script>
+
+
+         <style>
+           body {
+           	background-color:orange;
+           }
+               
+
+               .btn {
+                border:none;
+                outline:none;
+                padding:10px 16px;
+                background-color:green;
+                cursor: pointer;
+                font-size: 18px;
+                }
+
+
+                 .active ,.btn:hover {
+                  background-color:#666;
+                  color:black;
+                }
+               
+
+         </style>
+</body>
+</html>
